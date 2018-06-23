@@ -1,6 +1,11 @@
 <template>
-  <div id="app">
-    <p>{{ message }}</p>
+  <div id="app" class="row">
+    <div class="col s6 l6">
+      <input v-model="message" v-on:change="reverseText" placeholder="edit me">
+    </div>
+    <div class="col s6 l6">
+      <p>{{ message }}</p>
+    </div>
   </div>
 </template>
 
@@ -8,7 +13,12 @@
 export default {
   data: function () {
     return {
-      message: "Hello Vue!!!!!!!!!!!!"
+      message: ""
+    }
+  },
+  methods: {
+    reverseText: function() {
+      this.message = this.message.split("").reverse().join("")
     }
   }
 }
